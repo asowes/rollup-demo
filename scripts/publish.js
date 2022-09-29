@@ -26,6 +26,10 @@ const runCommand = (command, cwd) => {
   const { versions } = JSON.parse(npmPkgInfos);
   packageInfo.version = versions[versions.length - 1];
 
+  fs.writeFileSync(
+    path.resolve(__dirname, `../dist/package.json`),
+    JSON.stringify(packageInfo)
+  );
   await runCommand("npm version patch", distCwd);
   await runCommand("npm publish", distCwd);
 })();

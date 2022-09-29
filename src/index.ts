@@ -1,6 +1,4 @@
-import { App } from "./pages";
-export default App;
-
+export * from "./pages";
 export * from "./hooks";
 export * from "./helper";
 export * from "./models";

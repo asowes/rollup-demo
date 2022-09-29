@@ -7,9 +7,7 @@ import { terser } from "rollup-plugin-terser";
 import babel from "@rollup/plugin-babel";
 const packageJson = require("./package.json");
 import generatePackageJson from "rollup-plugin-generate-package-json";
-import { getFolders, getFiles } from "./scripts/buildUtils";
-
-getFiles("./src");
+import { getFolders } from "./scripts/buildUtils";
 
 const plugins = [
   peerDepsExternal(),
