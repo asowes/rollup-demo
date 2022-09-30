@@ -9,6 +9,15 @@ const packageJson = require("./package.json");
 import generatePackageJson from "rollup-plugin-generate-package-json";
 import { getFolders } from "./scripts/buildUtils";
 
+const externalPackages = [
+  ...Object.keys(packageJson.dependencies || {}),
+  ...Object.keys(packageJson.peerDependencies || {}),
+];
+
+const external = externalPackages.map(
+  (packageName) => new RegExp(`^${packageName}(\/.*)?`)
+);
+
 const plugins = [
   peerDepsExternal(),
   resolve(),
@@ -42,14 +51,15 @@ const subfolderPlugins = (folderName) => [
   }),
 ];
 
-const external = [
-  "react",
-  "react-dom",
-  "@reduxjs/toolkit",
-  "react-redux",
-  "@chakra-ui/react",
-  "@emotion/styled",
-];
+// const external = [
+//   "react",
+//   "react-dom",
+//   "@reduxjs/toolkit",
+//   "react-redux",
+//   "@chakra-ui/react",
+//   "@emotion/styled",
+//   "**/node_modules/**",
+// ];
 
 const srcSubFoldersConfigs = getFolders("./src").map((folder) => {
   return {
@@ -94,7 +104,7 @@ const cjsIndexFileConfig = {
 };
 
 export default [
-  esmIndexFileConfig,
+  // esmIndexFileConfig,
   ...srcSubFoldersConfigs,
-  cjsIndexFileConfig,
+  // cjsIndexFileConfig,
 ];
