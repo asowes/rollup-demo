@@ -1,7 +1,7 @@
-const { exec } = require("child_process");
-const fs = require("fs");
-const packageInfo = require("../dist/package.json");
 const path = require("path");
+const { writeFile } = require("fs-extra");
+const packageInfo = require("../dist/package.json");
+const { exec } = require("child_process");
 
 const { name } = packageInfo;
 
@@ -21,15 +21,21 @@ const runCommand = (command, cwd) => {
   });
 };
 
+const writeJson = (targetPath, obj) =>
+  writeFile(targetPath, JSON.stringify(obj, null, 2), "utf8");
+
 (async () => {
   const npmPkgInfos = await runCommand(`npm view ${name} --json`);
   const { versions } = JSON.parse(npmPkgInfos);
   packageInfo.version = versions[versions.length - 1];
 
-  fs.writeFileSync(
-    path.resolve(__dirname, `../dist/package.json`),
-    JSON.stringify(packageInfo)
-  );
+  const targetPath = path.resolve(__dirname, `../dist/package.json`);
+  const newPackageData = {
+    ...packageInfo,
+  };
+
+  await writeJson(targetPath, newPackageData);
+
   await runCommand("npm version patch", distCwd);
   await runCommand("npm publish", distCwd);
 })();

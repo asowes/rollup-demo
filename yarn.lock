@@ -24,10 +24,19 @@
     jsonpointer "^5.0.0"
     leven "^3.1.0"
 
-"@asow/rollup-demo@^0.1.23":
-  version "0.1.23"
-  resolved "https://registry.yarnpkg.com/@asow/rollup-demo/-/rollup-demo-0.1.23.tgz#71ed14a9d849bb47153173796f226df8839030f4"
-  integrity sha512-9P7ivpt/EZTl0QfEt0cUMQxtEF/jOPU2vhY6ttPLkfXcBz9aJBT7yBv0qgEom07lCrFLZ+lyv7qOlyaam6Ys1A==
+"@asow/rollup-demo@^0.1.35":
+  version "0.1.35"
+  resolved "https://registry.yarnpkg.com/@asow/rollup-demo/-/rollup-demo-0.1.35.tgz#0e70e36b61186a0cd36fda79c8728dacaef621c7"
+  integrity sha512-eAfeX2QT/fZZGv6tH45XA9bSABpRS0oGReNY+v5HAQJdNMrG706DAAi6SyDGJBvkhMBcCE1KH2uXX7umkaxP6A==
+  dependencies:
+    "@chakra-ui/react" "^2.3.4"
+    "@emotion/css" "^11.10.0"
+    "@emotion/react" "^11.10.4"
+    "@emotion/styled" "^11.10.4"
+    "@reduxjs/toolkit" "^1.8.5"
+    commander "^9.4.1"
+    framer-motion "^7.3.6"
+    react-redux "^8.0.2"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.16.0", "@babel/code-frame@^7.16.7", "@babel/code-frame@^7.18.6", "@babel/code-frame@^7.8.3":
   version "7.18.6"
@@ -4232,6 +4241,11 @@ commander@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
   integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
+
+commander@^9.4.1:
+  version "9.4.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-9.4.1.tgz#d1dd8f2ce6faf93147295c0df13c7c21141cfbdd"
+  integrity sha512-5EEkTNyHNGFPD2H+c/dXXfQZYa/scCKasxWcXJaWnNJ99pnQN9Vnmqow+p+PlFPE63Q6mThaZws1T+HxfpgtPw==
 
 common-path-prefix@^3.0.0:
   version "3.0.0"

@@ -18,28 +18,33 @@
   "engines": {
     "node": ">=12.20.0"
   },
+  "bin": {
+    "asow": "./bin/asow-package/index.js"
+  },
   "dependencies": {
     "@chakra-ui/react": "^2.3.4",
     "@emotion/css": "^11.10.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@reduxjs/toolkit": "^1.8.5",
+    "commander": "^9.4.1",
     "framer-motion": "^7.3.6",
     "react-redux": "^8.0.2"
   },
   "peerDependencies": {
-    "react": ">=17.0.2",
-    "react-dom": ">=17.0.2",
     "@chakra-ui/react": ">=2.3.0",
     "@emotion/css": ">=11.10.0",
     "@emotion/react": ">=11.10.4",
     "@emotion/styled": ">=11.10.4",
     "@reduxjs/toolkit": ">=1.8.5",
+    "commander": ">=9.0.0",
     "framer-motion": ">=7.3.6",
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2",
     "react-redux": ">=8.0.2"
   },
   "devDependencies": {
-    "@asow/rollup-demo": "^0.1.16",
+    "@asow/rollup-demo": "^0.1.35",
     "@govtechsg/sgds-react": "^2.0.0",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
@@ -67,10 +72,12 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "build": "yarn rollup && yarn post:build",
+    "build": "yarn rollup && yarn post:build && yarn build:bin",
     "post:build": "node ./scripts/frankBuild.js",
+    "build:bin": "node ./scripts/copyBin.js",
     "rollup": "rm -rf dist && rollup -c",
-    "pub": "node ./scripts/publish.js"
+    "pub": "node ./scripts/publish.js",
+    "test": "node src/bin/asow-package -f"
   },
   "eslintConfig": {
     "extends": [
